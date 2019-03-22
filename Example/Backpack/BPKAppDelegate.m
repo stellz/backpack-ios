@@ -18,7 +18,9 @@
 
 #import "BPKAppDelegate.h"
 #import "ShakeableWindow.h"
+
 #import <Backpack/Color.h>
+#import <Backpack/Theme.h>
 
 @implementation BPKAppDelegate
 
@@ -33,8 +35,15 @@
 
     ShakeableWindow *shakeableWindow = [[ShakeableWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     shakeableWindow.windowLevel = UIWindowLevelAlert;
-    shakeableWindow.rootViewController = self.window.rootViewController;
-    self.shakeableWindow = shakeableWindow;
+    [BPKLondonTheme apply];
+    [BPKDohaTheme apply];
+    [BPKHongKongTheme apply];
+
+    BPKLondonThemeContainer *londThemeContainer = [[BPKLondonThemeContainer alloc] init];
+    BPKThemeContainerController *themeContainer = [[BPKThemeContainerController alloc] initWithThemeContainer:londThemeContainer
+                                                                                           rootViewController:self.window.rootViewController];
+    shakeableWindow.rootViewController = themeContainer;
+    self.window = shakeableWindow;
     [shakeableWindow makeKeyAndVisible];
 
     return YES;
