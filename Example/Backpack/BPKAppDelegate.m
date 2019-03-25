@@ -35,9 +35,9 @@
 
     ShakeableWindow *shakeableWindow = [[ShakeableWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     shakeableWindow.windowLevel = UIWindowLevelAlert;
-    [BPKLondonTheme apply];
-    [BPKDohaTheme apply];
-    [BPKHongKongTheme apply];
+    [BPKTheme applyTheme:[BPKLondonTheme new]];
+//    [BPKDohaTheme apply];
+//    [BPKHongKongTheme apply];
 
     BPKLondonThemeContainer *londThemeContainer = [[BPKLondonThemeContainer alloc] init];
     BPKThemeContainerController *themeContainer = [[BPKThemeContainerController alloc] initWithThemeContainer:londThemeContainer

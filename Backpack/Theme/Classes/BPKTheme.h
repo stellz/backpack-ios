@@ -20,15 +20,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol BPKThemeDefinition;
 NS_SWIFT_NAME(Theme) @interface BPKTheme : NSObject
 
-+ (void)apply;
++ (void)applyTheme:(id<BPKThemeDefinition>)theme;
 
-+ (void)applyWithContainer:(Class)class;
-
-+ (UIColor *)getSwitchPrimaryColor;
-
-+ (Class)getThemeContainerClass;
++ (void)applyTheme:(id<BPKThemeDefinition>)theme withContainer:(Class)class;
 
 @end
 
