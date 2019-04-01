@@ -20,6 +20,7 @@
 #import "BPKDohaThemeContainer.h"
 
 #import <Backpack/Switch.h>
+#import <Backpack/Spinner.h>
 
 @implementation BPKTheme
 
@@ -31,10 +32,18 @@
 + (void)applyWithContainer:(Class) class {
     UIColor *switchPrimaryColor = [self getSwitchPrimaryColor];
     [[BPKSwitch appearanceWhenContainedInInstancesOfClasses:@[class]] setOnTintColor:switchPrimaryColor];
+    UIColor *spinnerPrimaryColor = [self getSpinnerPrimaryColor];
+    [[BPKSpinner appearanceWhenContainedInInstancesOfClasses:@[class]] setColor:spinnerPrimaryColor];
 }
 
 + (UIColor *)getSwitchPrimaryColor {
     // "BPKTheme should not be applied directly. Subclasses that override `getSwitchPrimaryColor` should be used instead.
+    assert(false);
+    return nil;
+}
+
++ (UIColor *)getSpinnerPrimaryColor {
+    // "BPKTheme should not be applied directly. Subclasses that override `getSpinnerPrimaryColor` should be used instead.
     assert(false);
     return nil;
 }

@@ -84,6 +84,19 @@ NS_ASSUME_NONNULL_BEGIN
     [self setNeedsDisplay];
 }
 
+-(void)setColor:(UIColor * _Nullable)color {
+    [super setColor:color];
+    return;
+}
+
+-(void)setPrimaryColor:(UIColor *)primaryColor {
+    [self didChangeProperty];
+}
+
+//- (void)setColorForSpinnerStyle:(BPKSpinnerStyle)style withColor:(UIColor)color {
+//
+//}
+
 + (UIActivityIndicatorViewStyle)styleForSpinnerSize:(BPKSpinnerSize)size {
     switch (size) {
         case BPKSpinnerSizeDefault:

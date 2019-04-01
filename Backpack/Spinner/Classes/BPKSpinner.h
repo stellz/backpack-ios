@@ -56,6 +56,11 @@ NS_SWIFT_NAME(Spinner) IB_DESIGNABLE @interface BPKSpinner : UIActivityIndicator
 @property (nonatomic) BPKSpinnerSize size;
 
 /**
+  * Colour to use for the primary spinner.
+ */
+@property (null_resettable, readwrite, nonatomic, strong) UIColor *primaryColor UI_APPEARANCE_SELECTOR;
+
+/**
  * Creates a `BPKSpinner` with a specific style and size.
  *
  * @param style Style to be used by the button.
