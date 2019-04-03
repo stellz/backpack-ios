@@ -15,9 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#import <Backpack/Font.h>
 #import <Foundation/Foundation.h>
-
-#import "Font.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, readonly, strong) NSString *themeName;
 @property(nonatomic, readonly, strong) UIColor *switchPrimaryColor;
-@property(nonatomic, readonly, strong) UIColor *spinnerPrimaryColor;
 @property(nonatomic, readonly) Class themeContainerClass;
 
 @end

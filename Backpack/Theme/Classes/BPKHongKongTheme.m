@@ -34,10 +34,6 @@
     return [UIColor colorWithRed:76.0f / 255.0f green:76.0f / 255.0f blue:76.0f / 255.0f alpha:1.0f];
 }
 
-- (UIColor *)spinnerPrimaryColor {
-    return [UIColor colorWithRed:76.0f / 255.0f green:76.0f / 255.0f blue:76.0f / 255.0f alpha:1.0f];
-}
-
 - (Class)themeContainerClass {
     return [BPKHongKongThemeContainer class];
 }

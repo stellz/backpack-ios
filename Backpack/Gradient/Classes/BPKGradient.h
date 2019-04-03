@@ -16,7 +16,6 @@
  * limitations under the License.
  */
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 /**
  * These constants represent the directions available for gradients in Backpack.

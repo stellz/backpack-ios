@@ -18,6 +18,7 @@
 
 #import "BPKThemeContainerController.h"
 #import "BPKTheme.h"
+#import "BPKThemeDefinition.h"
 
 #import <Backpack/Common.h>
 
@@ -32,14 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (instancetype)initWithThemeDefinition:(id<BPKThemeDefinition>)themeDefinition
+- (instancetype)initWithThemeContainer:(UIView *)container
                     rootViewController:(nonnull UIViewController *)rootViewController {
     self = [super initWithNibName:nil bundle:nil];
 
     if (self) {
         _themeActive = YES;
-        _themeDefinition = themeDefinition;
-        _themeContainer = [BPKTheme containerFor:_themeDefinition];
+        _themeContainer = container;
         self.rootViewController = rootViewController;
 
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
         }
 
         id<BPKThemeDefinition> definition = (id<BPKThemeDefinition>)notification.object;
-        [self setThemeDefinition:definition];
+        [self setThemeContainer:[BPKTheme containerFor:definition]];
     }
 }
 
@@ -104,13 +104,13 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
-- (void)setThemeDefinition:(id<BPKThemeDefinition>)themeDefinition {
+- (void)setThemeContainer:(UIView *)themeContainer {
     BPKAssertMainThread();
 
-    if (_themeDefinition != themeDefinition) {
+    if (_themeContainer != themeContainer) {
         [self.rootViewController.view removeFromSuperview];
         [_themeContainer removeFromSuperview];
-        _themeContainer = [BPKTheme containerFor:themeDefinition];
+        _themeContainer = themeContainer;
         [self.view addSubview:_themeContainer];
         [_themeContainer addSubview:self.rootViewController.view];
 
@@ -120,8 +120,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (BPKThemeContainerController *)createIdenticalThemeContainerForRootController:(UIViewController *)rootController {
+    UIView *themeContainer = [[_themeContainer class] new];
     BPKThemeContainerController *themeContainerController =
-    [[BPKThemeContainerController alloc] initWithThemeDefinition:_themeDefinition rootViewController:rootController];
+        [[BPKThemeContainerController alloc] initWithThemeContainer:themeContainer rootViewController:rootController];
     return themeContainerController;
 }
 

@@ -21,7 +21,6 @@
 #import "BPKThemeDefinition.h"
 
 #import <Backpack/Switch.h>
-#import <Backpack/Spinner.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -43,7 +42,6 @@ static NSString *BPKThemeDidChangeNotification = @"BPKThemeDidChangeNotification
 
 + (void)applyTheme:(id<BPKThemeDefinition>)theme withContainer:(Class)class {
     [[BPKSwitch appearanceWhenContainedInInstancesOfClasses:@[ class ]] setOnTintColor:theme.switchPrimaryColor];
-    [[BPKSpinner appearanceWhenContainedInInstancesOfClasses:@[ class ]] setPrimaryColor:theme.spinnerPrimaryColor];
 }
 
 @end

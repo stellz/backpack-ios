@@ -21,7 +21,3 @@ import Backpack
 let spinner = Backpack.Spinner(size: .`default`, style: .primary)
 // Position spinner with autolayout or other method
 ```
-
-### Appearance attributes
-`(UIColor)primaryColor`
-

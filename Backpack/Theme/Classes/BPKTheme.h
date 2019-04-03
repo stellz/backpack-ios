@@ -16,6 +16,7 @@
  * limitations under the License.
  */
 
+#import "BPKThemeDefinition.h"
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
