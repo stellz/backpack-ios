@@ -24,6 +24,7 @@ enum DialogType {
     case warning
     case delete
     case confirmation
+    case onboarding
 }
 
 class DialogViewController: UIViewController {
@@ -40,7 +41,32 @@ class DialogViewController: UIViewController {
             showDelete()
         case .confirmation:
             showConfirmation()
+        case .onboarding:
+            showOnBoarding()
         }
+    }
+
+    func showOnBoarding() {
+        let message = "This is a floating style dialog, usually used for prompting users during the onboarding flow."
+        let dialogController  = DialogController(title: "Welcome!",
+                                                message: message,
+                                                style: .floating,
+                                                iconBackgroundColor: nil,
+                                                iconImage: nil)
+        dialogController.cornerStyle = .large
+
+        let mainAction = DialogButtonAction(title: "Got it", style: .primary) {
+            print("Primary was tapped, action: \($0)")
+        }
+
+        let scrimAction = DialogScrimAction(handler: { (didDismiss) in
+            print("Scrim tap \(didDismiss ? "dimissing" : "")")
+        }, shouldDismiss: false)
+
+        dialogController.addButtonAction(mainAction)
+        dialogController.scrimAction = scrimAction
+
+        self.present(dialogController, animated: true, completion: nil)
     }
 
     func showNormal() {

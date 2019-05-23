@@ -24,6 +24,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Enum values for specifying corner style
+ */
+typedef NS_ENUM(NSUInteger, BPKDialogCornerStyle) {
+    BPKDialogCornerStyleSmall = 0,
+    BPKDialogCornerStyleLarge = 1,
+};
+
+@class BPKLabel;
 @protocol BPKDialogViewDelegate <NSObject>
 @required
 /**
@@ -51,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nullable, nonatomic, strong) UIColor *iconBackgroundColor;
 
+@property(nonatomic, assign) BPKLabel *messageLabel;
+
 /**
  * The icon to display in the icon view at the top.
  * Must be 24x24 points in size. Should preferably
@@ -58,6 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
  * image with white content.
  */
 @property(nullable, nonatomic, strong) UIImage *iconImage;
+
+@property(nonatomic) BPKDialogCornerStyle cornerStyle;
 
 /**
  * The title to display in the view.

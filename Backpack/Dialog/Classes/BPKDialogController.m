@@ -24,6 +24,7 @@
 
 #import <Backpack/Button.h>
 #import <Backpack/Color.h>
+#import <Backpack/Radii.h>
 #import <Backpack/Spacing.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -45,8 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
                         style:(BPKDialogControllerStyle)style
-          iconBackgroundColor:(UIColor *)iconBackgroundColor
-                    iconImage:(UIImage *)iconImage;
+          iconBackgroundColor:(UIColor * _Nullable)iconBackgroundColor
+                    iconImage:(UIImage * _Nullable)iconImage;
 @end
 
 @implementation BPKDialogController
@@ -54,8 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitle:(NSString *)title
                       message:(NSString *)message
                         style:(BPKDialogControllerStyle)style
-          iconBackgroundColor:(UIColor *)iconBackgroundColor
-                    iconImage:(UIImage *)iconImage {
+          iconBackgroundColor:(UIColor * _Nullable)iconBackgroundColor
+                    iconImage:(UIImage * _Nullable)iconImage {
     self = [super init];
 
     if (self) {
@@ -78,8 +79,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)dialogControllerWithTitle:(NSString *)title
                                   message:(NSString *)message
                                     style:(BPKDialogControllerStyle)style
-                      iconBackgroundColor:(UIColor *)iconBackgroundColor
-                                iconImage:(UIImage *)iconImage {
+                      iconBackgroundColor:(UIColor * _Nullable)iconBackgroundColor
+                                iconImage:(UIImage * _Nullable)iconImage {
     return [[self alloc] initWithTitle:title
                                message:message
                                  style:style
@@ -102,6 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     self.dialogView = [[BPKDialogView alloc] initWithFrame:CGRectZero];
     self.dialogView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.dialogView.cornerStyle = BPKDialogCornerStyleSmall;
     self.dialogView.delegate = self;
     [self.dialogView setTitle:self.titleText];
     [self.dialogView setIconImage:self.iconImage];
@@ -126,6 +128,9 @@ NS_ASSUME_NONNULL_BEGIN
     [self.dialogView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     if (self.style == BPKDialogControllerStyleBottomSheet) {
         self.bottomAnchorConstraint = [self.dialogView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor];
+        self.bottomAnchorConstraint.active = YES;
+    } else if (self.style == BPKDialogControllerStyleFloating) {
+        self.bottomAnchorConstraint = [self.dialogView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-BPKSpacingLg];
         self.bottomAnchorConstraint.active = YES;
     } else if (self.style == BPKDialogControllerStyleAlert) {
         [self.dialogView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
@@ -208,6 +213,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)_setScrimAlpha:(double)scrimAlpha {
     self.scrimView.alpha = 0.5 * fmax(fmin(scrimAlpha, 1.0), 0.0);
+}
+
+- (void) setCornerStyle:(BPKDialogCornerStyle)cornerStyle {
+    self.dialogView.cornerStyle = cornerStyle;
+}
+
+- (BPKLabel *)messageLabel {
+    return self.dialogView.messageLabel;
 }
 
 #pragma mark - BPKDialogViewDelegate

@@ -44,7 +44,13 @@ typedef NS_ENUM(NSInteger, BPKDialogControllerStyle) {
      * An alert style Dialog displaying its content in
      * the middle of the screen.
      */
-    BPKDialogControllerStyleAlert
+    BPKDialogControllerStyleAlert,
+
+    /**
+     * A floating style Dialog displaying its content
+     * somewhat offset from the bottom of the screen.
+     */
+    BPKDialogControllerStyleFloating
 };
 
 /**
@@ -58,6 +64,7 @@ typedef NS_ENUM(NSInteger, BPKDialogControllerStyle) {
  * The controller is exclusively intended to be used with `presentViewController:`.
 
  */
+@class BPKLabel;
 NS_SWIFT_NAME(DialogController)
 @interface BPKDialogController : UIViewController <BPKDialogViewDelegate, UIViewControllerTransitioningDelegate>
 
@@ -65,6 +72,10 @@ NS_SWIFT_NAME(DialogController)
  * The style of the dialog.
  */
 @property(nonatomic, assign) BPKDialogControllerStyle style;
+
+@property(nonatomic, assign) BPKDialogCornerStyle cornerStyle;
+
+@property(nonatomic, assign) BPKLabel *messageLabel;
 
 /**
  * Add a button action to the dialog. For both styles
@@ -100,8 +111,8 @@ NS_SWIFT_NAME(DialogController)
 + (instancetype)dialogControllerWithTitle:(NSString *)title
                                   message:(NSString *)message
                                     style:(BPKDialogControllerStyle)style
-                      iconBackgroundColor:(UIColor *)iconBackgroundColor
-                                iconImage:(UIImage *)iconImage;
+                      iconBackgroundColor:(UIColor * _Nullable)iconBackgroundColor
+                                iconImage:(UIImage * _Nullable)iconImage;
 
 // Protected
 

@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
             animations:^{
               if (dialogController && dialogController.style == BPKDialogControllerStyleAlert) {
                   dialogController.view.alpha = 0.0;
-              } else if (dialogController && dialogController.style == BPKDialogControllerStyleBottomSheet) {
+              } else if (dialogController && (dialogController.style == BPKDialogControllerStyleBottomSheet || dialogController.style == BPKDialogControllerStyleFloating)) {
                   [dialogController _setScrimAlpha:0.0];
                   [dialogController _addDismissingKeyFrameContentAnimationWithRelativeStartTime:0.6
                                                                                relativeDuration:0.4];
