@@ -395,6 +395,25 @@
                     </navigationItem>
                     <connections>
                         <outlet property="settingsButton" destination="oJ6-zT-C2i" id="QWm-4P-mcV"/>
+                        <outletCollection property="labels" destination="0Ey-xR-38U" id="g3P-D8-Xed"/>
+                        <outletCollection property="labels" destination="ecR-F3-4Go" id="2RJ-vf-9ea"/>
+                        <outletCollection property="labels" destination="lNa-O8-TEh" id="qDA-IB-fCy"/>
+                        <outletCollection property="labels" destination="VIk-eK-oOe" id="XnP-BM-iB0"/>
+                        <outletCollection property="labels" destination="0V0-vM-qeo" id="dds-LG-1kT"/>
+                        <outletCollection property="labels" destination="Wx4-tu-MTr" id="vhe-2H-ryu"/>
+                        <outletCollection property="labels" destination="4YI-zv-hUc" id="3kY-1R-y58"/>
+                        <outletCollection property="labels" destination="EjZ-Hm-tKd" id="2da-Qt-vNy"/>
+                        <outletCollection property="labels" destination="EjZ-Hm-tKd" id="KmT-sw-Kwg"/>
+                        <outletCollection property="labels" destination="nwY-m6-ctp" id="QkC-CV-7Dx"/>
+                        <outletCollection property="labels" destination="lGT-yn-73b" id="Fmm-yS-OBo"/>
+                        <outletCollection property="labels" destination="iau-99-JuG" id="Jo8-D8-9hI"/>
+                        <outletCollection property="labels" destination="wSn-8E-6Xt" id="0X8-9f-ykr"/>
+                        <outletCollection property="labels" destination="Nnz-Im-Xkf" id="ApT-Er-A8V"/>
+                        <outletCollection property="labels" destination="p0k-vY-PcO" id="uOH-7O-quQ"/>
+                        <outletCollection property="labels" destination="p6x-St-J1F" id="HN0-9Y-vpx"/>
+                        <outletCollection property="labels" destination="qF6-Yq-9kq" id="Nly-ye-hdA"/>
+                        <outletCollection property="labels" destination="g30-K2-Rnp" id="TcJ-SD-4Ra"/>
+                        <outletCollection property="labels" destination="esw-01-AEW" id="O51-m8-8bS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqv-Dk-doc" userLabel="First Responder" sceneMemberID="firstResponder"/>

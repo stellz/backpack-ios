@@ -22,6 +22,7 @@
 #import <Backpack/Icon.h>
 
 @interface BPKRootListTableViewController ()
+@property (strong, nonatomic) IBOutletCollection(BPKLabel) NSArray *labels;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @end
 
@@ -33,6 +34,16 @@
     UIImage *largeSettingsIcon = [BPKIcon templateIconNamed:@"settings" size:BPKIconSizeLarge];
     self.settingsButton.image = largeSettingsIcon;
     self.settingsButton.accessibilityLabel = @"Settings";
+
+    if (@available(iOS 13.0, *)) {
+        if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark){
+            self.settingsButton.tintColor = BPKColor.white;
+
+            for (BPKLabel *label in _labels) {
+                label.textColor = BPKColor.white;
+            }
+        }
+    }
 
     self.settingsButton.target = self;
     self.settingsButton.action = @selector(didTapSettingsButton);
