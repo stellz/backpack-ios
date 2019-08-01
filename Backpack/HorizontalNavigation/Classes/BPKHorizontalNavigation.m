@@ -104,12 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 
         UIView *selectedButton = self.stackView.arrangedSubviews[self.selectedItemIndex];
 
-        double animationDuration = 0.2;
-        if (UIAccessibilityIsReduceMotionEnabled()) {
-            animationDuration = 0.0;
-        }
-
-        [UIView animateWithDuration:animationDuration
+        [UIView animateWithDuration:0.2
                          animations:^{
                            [self adjustBarConstraintsForView:selectedButton];
 
