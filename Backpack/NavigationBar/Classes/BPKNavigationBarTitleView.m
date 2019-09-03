@@ -19,6 +19,7 @@
 
 #import <Backpack/Color.h>
 #import <Backpack/Common.h>
+#import <Backpack/Color.h>
 #import <Backpack/Label.h>
 
 const CGFloat BPKNavigationBarTitleHeight = 44;
@@ -47,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
         [UIView animateWithDuration:.15 animations:^{
             self.titleLabel.alpha = self.showsContent ? 1.0 : 0.0;
-            self.backgroundColor = self.showsContent ? UIColor.clearColor : UIColor.whiteColor;
+            self.backgroundColor = self.showsContent ? BPKColor.clear : BPKColor.white;
         }];
     }
 }
