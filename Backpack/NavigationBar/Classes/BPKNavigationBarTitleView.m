@@ -20,6 +20,8 @@
 #import <Backpack/Common.h>
 #import <Backpack/Label.h>
 
+#import "BPKNavigationBarHelpers.h"
+
 const CGFloat BPKNavigationBarTitleHeight = 44;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -38,6 +40,29 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
+- (void)setTitle:(NSString *)title {
+    BPKAssertMainThread();
+    if (title != _title) {
+        _title = [title copy];
+
+        [self updateTitleLabelText];
+    }
+}
+
+- (void)setShortTitle:(NSString *_Nullable)shortTitle {
+    BPKAssertMainThread();
+    if (shortTitle != _shortTitle) {
+        _shortTitle = [shortTitle copy];
+
+        [self updateTitleLabelText];
+    }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self updateTitleLabelText];
+}
+
 - (void)setShowsContent:(BOOL)showsContent {
     BPKAssertMainThread();
 
@@ -51,6 +76,19 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 #pragma mark - Private
+
+- (void) updateTitleLabelText {
+    if (self.shortTitle == nil) {
+        self.titleLabel.text = self.title;
+        return;
+    }
+
+    if ([BPKNavigationBarHelpers view:self canFitTitle:self.title]) {
+        self.titleLabel.text = self.title;
+    } else {
+        self.titleLabel.text = self.shortTitle;
+    }
+}
 
 - (BPKLabel *)titleLabel {
     if (!_titleLabel) {

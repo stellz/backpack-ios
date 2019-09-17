@@ -83,9 +83,19 @@ NS_ASSUME_NONNULL_BEGIN
     if (title != _title) {
         _title = [title copy];
 
-        self.largeTitleView.titleLabel.text = _title;
-        self.titleView.titleLabel.text = _title;
+        self.largeTitleView.title = _title;
+        self.titleView.title = _title;
         self.baseLargeTitleFontSize = self.largeTitleView.titleLabel.font.pointSize;
+    }
+}
+
+- (void)setShortTitle:(NSString *_Nullable)shortTitle {
+    BPKAssertMainThread();
+    if (shortTitle != _shortTitle) {
+        _shortTitle = [shortTitle copy];
+
+        self.largeTitleView.shortTitle = _shortTitle;
+        self.titleView.shortTitle = _shortTitle;
     }
 }
 

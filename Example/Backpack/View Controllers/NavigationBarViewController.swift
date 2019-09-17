@@ -40,7 +40,8 @@ class NavigationBarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.title = "Explore"
+        navigationBar.title = "Long Long Long Long"
+        navigationBar.shortTitle = "Short"
 
         tableView.register(UITableViewCell.self,
                            forCellReuseIdentifier: NavigationBarViewController.CellIdentifier)

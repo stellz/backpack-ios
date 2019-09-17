@@ -25,10 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
  * the iOS 11 style large title pattern.
  */
 NS_SWIFT_NAME(NavigationBar) @interface BPKNavigationBar : UIView
+
 /**
  * The title text to display in the navigation bar
  */
 @property(nonatomic, copy) NSString *title;
+
+/**
+ * The title text to display in the navigation bar when the title doesn't fit
+ */
+@property(nonatomic, copy, nullable) NSString *shortTitle;
 
 /**
  * Set the color of the large title. When `nil` the

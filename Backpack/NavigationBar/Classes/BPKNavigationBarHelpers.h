@@ -19,28 +19,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-extern const CGFloat BPKNavigationBarLargeTitleViewHeight;
-
 NS_ASSUME_NONNULL_BEGIN
-@class BPKLabel;
-@interface BPKNavigationBarLargeTitleView : UIView
-@property(nonatomic, readonly, strong) BPKLabel *titleLabel;
 
-- (instancetype)init __attribute__((unavailable("use initWithFrame: instead")));
-- (instancetype)initWithCoder:(NSCoder *)aDecoder __attribute__((unavailable("use initWithFrame: instead")));
+NS_SWIFT_NAME(NavigationBarHelpers) @interface BPKNavigationBarHelpers : NSObject
 
-- (instancetype)initWithFrame:(CGRect)frame;
-
-/**
- * The title text to display in the navigation bar
- */
-@property(nonatomic, copy) NSString *title;
-
-/**
- * The title text to display in the navigation bar when the title doesn't fit
- */
-@property(nonatomic, copy, nullable) NSString *shortTitle;
++(BOOL) view:(UIView *)view canFitTitle:(NSString *)title;
 
 @end
-
 NS_ASSUME_NONNULL_END

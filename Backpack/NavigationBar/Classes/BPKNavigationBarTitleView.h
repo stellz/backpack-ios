@@ -33,6 +33,17 @@ NS_ASSUME_NONNULL_BEGIN
 ;
 
 - (instancetype)initWithFrame:(CGRect)frame;
+
+/**
+ * The title text to display in the navigation bar
+ */
+@property(nonatomic, copy) NSString *title;
+
+/**
+ * The title text to display in the navigation bar when the title doesn't fit
+ */
+@property(nonatomic, copy, nullable) NSString *shortTitle;
+
 @end
 
 NS_ASSUME_NONNULL_END
