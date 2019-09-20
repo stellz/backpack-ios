@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   s.dependency 'FloatingPanel', '~> 1.6'
   s.dependency 'FSCalendar', '~> 2.8'
   s.dependency 'TTTAttributedLabel', '~> 1.13.4'
-  s.dependency 'MBProgressHUD', '~> 0.9.1'
+  s.dependency 'MBProgressHUD', '~> 0.9.1', :modular_headers => true
   s.frameworks = 'UIKit', 'Foundation', 'CoreText'
   s.requires_arc = true
   s.swift_version = '4.2'
