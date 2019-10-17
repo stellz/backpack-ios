@@ -166,8 +166,16 @@
   return [UIColor colorWithRed:0.067 green:0.071 blue:0.212 alpha:1];
 }
 
++ (UIColor *)textPrimaryDarkColor {
+  return [UIColor colorWithRed:1.000 green:1.000 blue:1.000 alpha:1];
+}
+
 + (UIColor *)textPrimaryLightColor {
   return [UIColor colorWithRed:0.067 green:0.071 blue:0.212 alpha:1];
+}
+
++ (UIColor *)textSecondaryDarkColor {
+  return [UIColor colorWithRed:1.000 green:1.000 blue:1.000 alpha:1];
 }
 
 + (UIColor *)textSecondaryLightColor {
@@ -178,32 +186,39 @@
   return [UIColor colorWithRed:0.067 green:0.071 blue:0.212 alpha:1];
 }
 
-+ (UIColor *)clear {
-  return UIColor.clearColor;
-}
 
-+ (UIColor *)label {
++ (UIColor *)textPrimaryColor {
 #if __BPK_DARK_MODE_SUPPORTED
     if (@available(iOS 13.0, *)) {
         return [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
                 if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
-                    return BPKColor.white;
+  return [UIColor colorWithRed:1.000 green:1.000 blue:1.000 alpha:1];
                 } else {
-                    return BPKColor.skyGray;
+  return [UIColor colorWithRed:0.067 green:0.071 blue:0.212 alpha:1];
                 }
      }];
-    }
+}
 #endif
-    return BPKColor.skyGray;
+  return [UIColor colorWithRed:0.067 green:0.071 blue:0.212 alpha:1];
 }
 
-+ (UIColor *)backgroundColor {
++ (UIColor *)textSecondaryColor {
 #if __BPK_DARK_MODE_SUPPORTED
-  if (@available(iOS 13.0, *)) {
-    return UIColor.systemBackgroundColor;
-  }
+    if (@available(iOS 13.0, *)) {
+        return [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull traitCollection) {
+                if (traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
+  return [UIColor colorWithRed:1.000 green:1.000 blue:1.000 alpha:1];
+                } else {
+  return [UIColor colorWithRed:0.267 green:0.271 blue:0.376 alpha:1];
+                }
+     }];
+}
 #endif
-    return UIColor.whiteColor;
+  return [UIColor colorWithRed:0.267 green:0.271 blue:0.376 alpha:1];
+}
+
++ (UIColor *)clear {
+  return UIColor.clearColor;
 }
 
 + (UIColor *)blend:(UIColor*)firstColor with:(UIColor*)secondColor weight:(double)weight {

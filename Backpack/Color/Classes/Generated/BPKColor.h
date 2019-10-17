@@ -28,16 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 */
 NS_SWIFT_NAME(Color) @interface BPKColor : NSObject
 
-/**
- * Use this color for standard table views and designs that have a white primary background in a light environment.
-*/
-@property(nonatomic, class, readonly) UIColor * backgroundColor;
-
-/**
- * The default color for Backpack text.
-*/
-@property(nonatomic, class, readonly) UIColor * label;
-
 ///-----------------------
 /// @name Colors
 ///-----------------------
@@ -295,11 +285,25 @@ NS_SWIFT_NAME(Color) @interface BPKColor : NSObject
 @property(nonatomic, class, readonly) UIColor * shadowSmColor;
 
 /**
+ * The `textPrimaryDarkColor` color from the Backpack palette.
+ *
+ * <div style="width: 100px; height: 100px; background: #ffffffff; box-shadow: 0px 1px 3px 0px rgba(37,32,31,.3); border-radius: 6px;"></div>
+*/
+@property(nonatomic, class, readonly) UIColor * textPrimaryDarkColor;
+
+/**
  * The `textPrimaryLightColor` color from the Backpack palette.
  *
  * <div style="width: 100px; height: 100px; background: #111236ff; box-shadow: 0px 1px 3px 0px rgba(37,32,31,.3); border-radius: 6px;"></div>
 */
 @property(nonatomic, class, readonly) UIColor * textPrimaryLightColor;
+
+/**
+ * The `textSecondaryDarkColor` color from the Backpack palette.
+ *
+ * <div style="width: 100px; height: 100px; background: #ffffffff; box-shadow: 0px 1px 3px 0px rgba(37,32,31,.3); border-radius: 6px;"></div>
+*/
+@property(nonatomic, class, readonly) UIColor * textSecondaryDarkColor;
 
 /**
  * The `textSecondaryLightColor` color from the Backpack palette.
@@ -319,6 +323,25 @@ NS_SWIFT_NAME(Color) @interface BPKColor : NSObject
  * The `clear` color from the Backpack palette.
 */
 @property(nonatomic, class, readonly) UIColor * clear;
+
+///-----------------------
+/// @name Dynamic colors
+///-----------------------
+
+/**
+ * The `textPrimaryColor` dynamic color from the Backpack palette.
+ *
+ * <div style="width: 100px; height: 100px; background-color: #111236ff; background: linear-gradient(0.375turn, #111236ff 49%, #ffffffff 50%); box-shadow: 0px 1px 3px 0px rgba(37,32,31,.3); border-radius: 6px;"></div>
+*/
+@property(nonatomic, class, readonly) UIColor * textPrimaryColor;
+
+/**
+ * The `textSecondaryColor` dynamic color from the Backpack palette.
+ *
+ * <div style="width: 100px; height: 100px; background-color: #444560ff; background: linear-gradient(0.375turn, #444560ff 49%, #ffffffff 50%); box-shadow: 0px 1px 3px 0px rgba(37,32,31,.3); border-radius: 6px;"></div>
+*/
+@property(nonatomic, class, readonly) UIColor * textSecondaryColor;
+
 
 /**
  * Combines two `UIColor` values with a specified weighting.
